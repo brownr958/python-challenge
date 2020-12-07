@@ -17,9 +17,6 @@ with open(budget_csv, 'r') as csvfile:
     print((csvreader))
     header = next(csvreader)
 
-    print("Financial Analysis")
-    print("---------------------------------")
-
     # Setting each of the variables to be used in the loop below
     count = 0
     net_profit = 0
@@ -64,11 +61,25 @@ with open(budget_csv, 'r') as csvfile:
 
 
     #Print out the results
+    print("Financial Analysis")
+    print("---------------------------------")
     print(f"Total Months: {count}")
     print(f"Total: ${net_profit}")
     print(f"Average Change: ${ave_profit}")
     print(f"Greatest Increase in Profits: {prev_change2_date} (${prev_change2})")
     print(f"Greatest Decrease in Profits: {prev_change_date} (${prev_change})")
+
+# Specify the file to write to
+output_path = os.path.join("analysis", "output.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w') as txtfile:
+
+
+    # Write the first row (column headers)
+    txtfile.write(f"Financial Analysis \r\n--------------------------------- \r\nTotal Months: {count}\r\nTotal: ${net_profit}\r\nAverage Change: ${ave_profit}\r\nGreatest Increase in Profits: {prev_change2_date} (${prev_change2})\r\nGreatest Decrease in Profits: {prev_change_date} (${prev_change})")
+
+
 
     
 
