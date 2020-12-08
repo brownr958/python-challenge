@@ -18,17 +18,22 @@ with open(election_csv, 'r') as csvfile:
     header = next(csvreader)
     # Setting each of the variables to be used in the loop below
     count = 0
+    khan_count=0
 
 
     # Loop through each of the csv file
     for row in csvreader:
         #Counting the number of votes
         count +=1
+        #Counting the number of votes for Khan
+        if row[3]=="Khan":
+            khan_count +=1
 
     #Print out the results
     print("Election Results")
     print("---------------------------------")
     print(f"Total Votes: {count}")
     print("---------------------------------")
+    print(f"Khan: ({khan_count})")
 
         
