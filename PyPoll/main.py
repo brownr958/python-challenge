@@ -18,7 +18,7 @@ with open(election_csv, 'r') as csvfile:
     header = next(csvreader)
     # Setting each of the variables to be used in the loop below
     count = 0
-    candidate_list=[]
+    candidate_list=set()
     khan_count=0
     correy_count=0
     li_count=0
@@ -29,6 +29,8 @@ with open(election_csv, 'r') as csvfile:
     for row in csvreader:
         #Counting the number of votes
         count +=1
+        #Creating list of candidates
+        candidate_list.add(row[2])
         #Counting the number of votes for each candidate
         if row[2]=="Khan":
             khan_count+=1
@@ -48,8 +50,22 @@ with open(election_csv, 'r') as csvfile:
         correy="{:.3f}".format(correy_percent)
         otooley="{:.3f}".format(otooley_percent)
         li="{:.3f}".format(li_percent)
-        
+        #Calculating the winner
+        winner_list = [khan, correy, otooley, li]
+        winner = max(winner_list)
+        #Changing format of winner's name
+        if winner == khan:
+            winner ="Khan"
+        elif winner == correy:
+            winner = "Correy"
+        elif winner == otooley:
+            winner = "O'tooley"
+        elif winner == li:
+            winner = "li"
 
+            
+
+        
 
     #Print out the results
     print("Election Results")
@@ -61,7 +77,15 @@ with open(election_csv, 'r') as csvfile:
     print(f"Li: {li}% ({li_count})")
     print(f"O'Tooley: {otooley}% ({otooley_count})")
     print("---------------------------------")
-    print(f'Winner: Khan')
+    print(f'Winner: {winner}')
     print("---------------------------------")
 
-        
+# Specify the file to write to
+output_path = os.path.join("analysis", "output.txt")
+
+# Open the file using "write" mode. Specify the variable to hold the contents
+with open(output_path, 'w') as txtfile:
+
+
+    # Write the first row (column headers)
+    txtfile.write(f"Election Results\r\n---------------------------------\r\nTotal Votes: {count}\r\n---------------------------------\r\nKhan: {khan}% ({khan_count})\r\nCorrey: {correy}% ({correy_count})\r\nLi: {li}% ({li_count})\r\nO'Tooley: {otooley}% ({otooley_count})\r\n---------------------------------\r\nWinner: {winner}\r\n---------------------------------")
