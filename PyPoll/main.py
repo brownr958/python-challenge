@@ -67,25 +67,25 @@ with open(election_csv, 'r') as csvfile:
 
         
 
-    #Print out the results
-    print("Election Results")
-    print("---------------------------------")
-    print(f"Total Votes: {count}")
-    print("---------------------------------")
-    print(f"Khan: {khan}% ({khan_count})")
-    print(f"Correy: {correy}% ({correy_count})")
-    print(f"Li: {li}% ({li_count})")
-    print(f"O'Tooley: {otooley}% ({otooley_count})")
-    print("---------------------------------")
-    print(f'Winner: {winner}')
-    print("---------------------------------")
+#     #Print out the results
+#     print("Election Results")
+#     print("---------------------------------")
+#     print(f"Total Votes: {count}")
+#     print("---------------------------------")
+#     print(f"Khan: {khan}% ({khan_count})")
+#     print(f"Correy: {correy}% ({correy_count})")
+#     print(f"Li: {li}% ({li_count})")
+#     print(f"O'Tooley: {otooley}% ({otooley_count})")
+#     print("---------------------------------")
+#     print(f'Winner: {winner}')
+#     print("---------------------------------")
 
-# Specify the file to write to
-output_path = os.path.join("analysis", "output.txt")
+# # Specify the file to write to
+# output_path = os.path.join("analysis", "output.txt")
 
-# Open the file using "write" mode. Specify the variable to hold the contents
-with open(output_path, 'w') as txtfile:
+# # Open the file using "write" mode. Specify the variable to hold the contents
+# with open(output_path, 'w') as txtfile:
 
 
-    # Write the first row (column headers)
-    txtfile.write(f"Election Results\r\n---------------------------------\r\nTotal Votes: {count}\r\n---------------------------------\r\nKhan: {khan}% ({khan_count})\r\nCorrey: {correy}% ({correy_count})\r\nLi: {li}% ({li_count})\r\nO'Tooley: {otooley}% ({otooley_count})\r\n---------------------------------\r\nWinner: {winner}\r\n---------------------------------")
+#     # Write the first row (column headers)
+#     txtfile.write(f"Election Results\r\n---------------------------------\r\nTotal Votes: {count}\r\n---------------------------------\r\nKhan: {khan}% ({khan_count})\r\nCorrey: {correy}% ({correy_count})\r\nLi: {li}% ({li_count})\r\nO'Tooley: {otooley}% ({otooley_count})\r\n---------------------------------\r\nWinner: {winner}\r\n---------------------------------")
